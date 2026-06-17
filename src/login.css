@@ -1,0 +1,103 @@
+/* Center the entire layout on the screen */
+.loginPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #FFF8F3; /* Your pure white background */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Page titles */
+.loginPage h1 {
+    margin-bottom: 20px;
+    color: rgb(62, 59, 59);
+}
+
+/* The core form card layout */
+.login-form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0; /* Subtle card border */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 340px;
+    box-sizing: border-box;
+}
+
+/* Grouping labels and fields clearly */
+.login-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 15px;
+    color: rgb(62, 59, 59);
+}
+
+/* Input elements styling */
+.login-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: inherit;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- BUTTON STYLING --- */
+
+/* Base settings for all buttons anywhere on the page */
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: inherit;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Target the "Login" button on the welcome landing page */
+.loginpage {
+    background-color: #E8612C; /* Your custom orange */
+    color: white;
+}
+.loginpage:hover {
+    background-color: #cf5222;
+}
+
+/* Target the "Create Account" button on the welcome landing page */
+.createact {
+    background-color: #E8612C; /* Your custom orange */
+    color: white;
+    margin-bottom: 10px; /* Separates the two welcome buttons vertically */
+}
+.createact:hover {
+    background-color: #cf5222;
+}
+
+/* Target the submit buttons inside your forms (LoginForm and CreateAccount) */
+.login-form button[type="submit"] {
+    background-color: #E8612C; /* Your custom orange */
+    color: white;
+    margin-top: 10px;
+}
+.login-form button[type="submit"]:hover {
+    background-color: #cf5222;
+}
+
+/* Target the "Go Back" buttons inside your view shifts */
+.loginPage > button {
+    background-color: #e0e0e0; /* Clean structural gray */
+    color: #333;
+    margin-top: 15px;
+}
+.loginPage > button:hover {
+    background-color: #d0d0d0;
+}

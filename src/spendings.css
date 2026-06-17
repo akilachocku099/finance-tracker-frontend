@@ -1,0 +1,162 @@
+/* Core Page Layout */
+.spendingsPage {
+  background-color: #FFF8F3; 
+  min-height: 100vh;
+  padding: 2.5rem 2rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1e2229;
+  max-width: 1300px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Category Grid Setup */
+.category-section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.25rem;
+  max-width: 100%;
+  margin: 0 auto 2.5rem auto;
+}
+
+/* Modern Minimalist Cards */
+.category-section-card {
+  background-color: #ffffff;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(201, 78, 30, 0.12);
+  box-shadow: 0 4px 12px rgba(201, 78, 30, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.2s ease;
+}
+
+.category-section-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(201, 78, 30, 0.08);
+  border-color: #E8612C;
+  cursor: pointer;
+}
+
+/* Icons within cards */
+.category-section-card i {
+  font-size: 1.4rem;
+  color: #E8612C;
+  background-color: #FFF0E6;
+  padding: 0.4rem 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.category-section-card h4 {
+  margin: 0 0 6px 0;
+  color: #C94E1E; /* Original Header Color */
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.category-section-card p {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e2229;
+}
+
+/* Split Column Layout for Chart & Recent List */
+.dashboard-lower-split {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .dashboard-lower-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Containers for Chart and List sections */
+.spending-trends-chart,
+.spending-Recent-expenses {
+  background-color: #ffffff;
+  padding: 1.75rem;
+  border-radius: 14px;
+  border: 1px solid rgba(201, 78, 30, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+}
+
+.spending-trends-chart h2,
+.spending-Recent-expenses h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #C94E1E; /* Original Header Color */
+}
+
+/* Recent Expenses Customization */
+.spending-Recent-expenses ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.recent-expenses-list li {
+  background-color: #FFF8F3; /* Beautifully transitions with main page */
+  border: 1px solid rgba(201, 78, 30, 0.08);
+  color: #1e2229;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  margin-bottom: 0;
+  transition: all 0.2s ease;
+}
+
+.recent-expenses-list li:hover {
+  background-color: #ffffff;
+  border-color: #E8612C;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(201, 78, 30, 0.06);
+  cursor: pointer;
+}
+
+.expense-info h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e2229;
+}
+
+.expense-info p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.85rem;
+  color: #626974;
+}
+
+/* Styled Back Button Section */
+.dashboard-footer {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.back-btn {
+  background-color: #C94E1E;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #E8612C;
+  box-shadow: 0 4px 12px rgba(232, 97, 44, 0.2);
+}

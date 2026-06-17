@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px; /* Invisible gap so sticky navbar doesn't cover titles */
+}
+
+body {
+    background-color: #FFF8F3;
+  overflow-x: hidden; /* Prevents ugly horizontal scrolling glitch on mobile */
+}
+.app-container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
