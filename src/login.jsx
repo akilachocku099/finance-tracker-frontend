@@ -17,7 +17,8 @@ function LoginForm({ onLoginSuccess }) {
         const result= await response.json();
         if(result.success){
             alert(result.message);
-            onLoginSuccess(); 
+
+            onLoginSuccess(result.username, result.monthlyincome, result.bankbalance); 
         } else{
             alert(result.message);
 
@@ -50,12 +51,15 @@ function CreateAccount(props) {
     const [password , setPassword] = useState(''); 
     const [firstName , setFirstName] = useState('');
     const [lastName , setLastName] = useState('');
+    const[monthlyincome,setMonthlyincome]=useState(0);
+    const[bankbalance,setBankbalance]=useState(0)
     const handleSubmit =async(e) => {
         e.preventDefault(); 
         const data={firstname: firstName,
                     lastname:lastName,
                     username:username,
-                    password:password};
+                    password:password,
+                    monthlyincome, bankbalance};
         console.log(data)
         const response = await fetch('http://localhost:3000/api/createaccount', {
              method: 'POST',
@@ -87,7 +91,20 @@ function CreateAccount(props) {
                         id="lastname"
                         onChange={(e) => setLastName(e.target.value)} />    
             </label>
-             
+             <label>
+                Monthly Income
+                <input type="Number"
+                       value={monthlyincome}
+                       id="monthlyincome"
+                       onChange={(e) => setMonthlyincome(e.target.value)} />    
+            </label>
+            <label>
+                BankBalance:
+                <input type="Number"
+                       value={bankbalance}
+                       id="bankbalance"
+                       onChange={(e) => setBankbalance(e.target.value)} />    
+            </label>
             <label>
                 Username:
                 <input  type="text"

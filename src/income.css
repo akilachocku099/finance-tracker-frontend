@@ -1,0 +1,84 @@
+/* 1. Page Setup */
+.income-page {
+    background-color: #FFF8F3; /* Warm background color */
+    padding: 20px;
+    font-family: sans-serif;   /* Standard, easy-to-read font */
+    color: #2D1B0E;            /* Dark brown text color */
+}
+
+/* 2. Main Title */
+.income-page h1 {
+    color: #C94E1E;            /* Deep orange-red title */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 3. White Form Box */
+.add-income-form {
+    background-color: #ffffff; /* White card background */
+    padding: 30px;
+    border-radius: 8px;        /* Soft corners */
+    max-width: 500px;          /* Prevents the form from becoming too wide */
+    margin: 0 auto;            /* Centers the form on the screen */
+    border: 2px solid #E8612C; /* Simple colored border around the form */
+}
+
+/* 4. Form Sub-heading */
+.add-income-form h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #2D1B0E;
+}
+
+/* 5. Input Labels */
+.add-income-form label {
+    display: block;            /* Puts each label on its own line */
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* 6. Inputs, Dropdowns, and Textarea boxes */
+.add-income-form input,
+.add-income-form select,
+.add-income-form textarea {
+    width: 100%;               /* Makes fields stretch to the full width of the box */
+    padding: 10px;
+    margin-bottom: 15px;       /* Adds space below each input field */
+    border: 1px solid #F4A261; /* Light orange border lines */
+    border-radius: 6px;
+    box-sizing: border-box;    /* Keeps everything perfectly aligned */
+}
+
+/* 7. Orange Submit Button */
+.submit-btn {
+    background-color: #E8612C; /* Bright orange button */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;               /* Stretches across the bottom of the form */
+}
+
+.submit-btn:hover {
+    background-color: #C94E1E; /* Darkens slightly when you hover over it */
+}
+
+/* 8. Transparent Back Button */
+.back-btn {
+    background-color: transparent;
+    border: 1px solid #E8612C;
+    color: #E8612C;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;               /* Stretches out uniformly under the submit button */
+    margin-top: 10px;          
+}
+
+.back-btn:hover {
+    background-color: #FFF0E6; 
+}

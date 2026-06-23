@@ -1,8 +1,13 @@
-# React + Vite
+# Finance Tracker - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the interactive client-facing dashboard dashboard for the Finance Tracker application, built using React and powered by Vite. It includes categorization layout blocks, analytical spending trend charts, and automated backend data synchronization hooks.
 
-Currently, two official plugins are available:
+## Key Features
+* **Dynamic Data Rendering:** Uses custom inline structural `for` loops to process incoming backend expense JSON data payloads.
+* **Data Visualization:** Employs `recharts` responsive bar layouts to map monthly spending metrics.
+* **State Operations:** Integrates React `useState` and `useEffect` hooks for automatic asynchronous API fetching on view initialization.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How to Run Locally
+1. Clone the repository
+2. Run `npm install`
+3. Launch the development engine using `npm run dev`

@@ -7,6 +7,9 @@ import DashBoard from "./dashboard.jsx";
 function App() {
   // 1. This switch tracks if the user successfully logged in. It starts as false.
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const[username,setusername]=useState('')
+  const [monthlyincome,setmonthlyincome]=useState(0)
+  const[bankbalance,setbankbalance]=useState(0)
 
   return (
     <div className="app-container">
@@ -14,10 +17,15 @@ function App() {
       
       <main className="main-content">
         {!isLoggedIn ? (
-          <Login onLoginSuccess={() => setIsLoggedIn(true)} />
+          <Login onLoginSuccess={(username,monthlyincome,bankbalance) => {setIsLoggedIn(true)
+                                       setusername(username)
+                                       setmonthlyincome(monthlyincome)
+                                       setbankbalance(bankbalance)
+
+          }} />
         ) : (
           <section id="dashboard">
-            <DashBoard />
+            <DashBoard username={username} bankbalance={bankbalance} monthlyincome={monthlyincome} />
           </section>
         )}
       </main>

@@ -4,14 +4,12 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recha
 
 function Spendings({ onBack }) {
     const [expenses,setexpenses]=useState([])
-    const data = [
-        { month: 'Jan', spent: 1200 },
-        { month: 'Feb', spent: 1500 },
-        { month: 'Mar', spent: 900 },
-        { month: 'Apr', spent: 1800 },
-        { month: 'May', spent: 1300 },
-        { month: 'Jun', spent: 1600 },
-    ]
+    const data = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'].map((month, i) => ({
+        month,
+        spent: expenses
+            .filter(expense => Number(expense.date.slice(5,7)) === i + 1)
+            .reduce((t, expense) => t + Number(expense.amount), 0)
+    }));
     const getexpenses = async () => {
         const response = await fetch('http://localhost:3000/api/spendings');
        const result= await response.json();
@@ -20,6 +18,7 @@ function Spendings({ onBack }) {
     };
     useEffect(() => {
     getexpenses();
+    
         }, []);
     return (
         <div className='spendingsPage'>
@@ -31,45 +30,45 @@ function Spendings({ onBack }) {
                     <div className="category-section-card">
                         <i className="ti ti-home"></i>
                         <h4>Rent</h4>
-                        <p>2000</p>
+                        <h4>{expenses.filter(expense=> expense.category=='rent').reduce((t, expense) => t + Number(expense.amount), 0)}</h4>
                     </div>
                     
                     {/* Card 2 */}
                     <div className="category-section-card">
                         <i className="ti ti-shopping-cart"></i>
                         <h4>Groceries</h4>
-                        <p>3500</p>
+                        <h4>{expenses.filter(expense=> expense.category=='groceries').reduce((t, expense) => t + Number(expense.amount), 0)}</h4>
                     </div>
                     
                     {/* Card 3 */}
                     <div className="category-section-card">
                         <i className="ti ti-car"></i>
                         <h4>Transportation</h4>
-                        <p>800</p>
+                        <h4>{expenses.filter(expense=> expense.category=='transportation').reduce((t, expense) => t + Number(expense.amount), 0)}</h4>
                     </div>
                     
                     <div className="category-section-card">
                         <i className="ti ti-device-tv"></i>
-                        <h4> Entertainment</h4>
-                        <p>1200</p>
+                        <h4>Entertainment</h4>
+                        <h4>{expenses.filter(expense=> expense.category=='entertainment').reduce((t, expense) => t + Number(expense.amount), 0)}</h4>
                     </div>
 
                     <div className="category-section-card">
                         <i className="ti ti-bolt"></i>
-                        <h4> Utilities</h4>
-                        <p>500</p>
+                        <h4>Utilities</h4>
+                        <h4>{expenses.filter(expense=> expense.category=='utilities').reduce((t, expense) => t + Number(expense.amount), 0)}</h4>
                     </div>
 
                     <div className="category-section-card">
                         <i className="ti ti-medical-cross"></i>
-                        <h4> Health</h4>
-                        <p>1200</p>
+                        <h4>Health</h4>
+                        <h4>{expenses.filter(expense=> expense.category=='health').reduce((t, expense) => t + Number(expense.amount), 0)}</h4>
                     </div>
 
                     <div className="category-section-card">
                         <i className="ti ti-dots"></i>
                         <h4>other</h4>
-                        <p>1200</p>
+                        <h4>{expenses.filter(expense=> expense.category=='other').reduce((t, expense) => t + Number(expense.amount), 0)}</h4>
                     </div>
             
                 </div>
@@ -93,25 +92,16 @@ function Spendings({ onBack }) {
                     <h2>Recent Expenses</h2>
                     
   
-                        <ul className="recent-expenses-list">
-                {(() => {
-                    const loopBucket = [];
-                    
-                    for (let i = 0; i < expenses.length; i++) {
-                        // 1. Fixed the capital 'B' in loopBucket
-                        loopBucket.push(
-                            <li key={i} className="recent-expense-item">
-                                <div className="expense-info">  
-                                    <h4> {expenses[i].name}</h4>
-                                    <p>Amount: ${expenses[i].amount}</p>
-                                    <p>Date: {expenses[i].date}</p> 
-                                </div>
-                            </li>
-                        );
-                    }
-                    
-                    return loopBucket;
-                })()} {/* 2. Fixed the function closing and added the () execution trigger! */}
+            <ul className="recent-expenses-list">
+                {expenses.map((expense, i) => (
+                    <li key={i} className="recent-expense-item">
+                        <div className="expense-info">
+                            <h4>{expense.name}</h4>
+                            <p>Amount: ${expense.amount}</p>
+                            <p>Date: {expense.date}</p>
+                        </div>
+                    </li>
+                ))}
             </ul>
                 </section>
 
