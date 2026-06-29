@@ -20,7 +20,7 @@ function Income({ onBack ,getexpenses , username }) {
                        
                     };
                     console.log(data);
-                    const response = await fetch('http://localhost:3000/api/income', {
+                    const response = await fetch('https://finance-tracker-backend-5k37.onrender.com/api/income', {
                     method: 'POST',
                     headers: {
                     'Content-Type': 'application/json'

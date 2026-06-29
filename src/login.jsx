@@ -8,7 +8,7 @@ function LoginForm({ onLoginSuccess }) {
         e.preventDefault();  
         const data={username: username,password:password};
         //console.log(data);
-        const response = await fetch('http://localhost:3000/api/login', {
+        const response = await fetch('https://finance-tracker-backend-5k37.onrender.com/api/login', {
              method: 'POST',
              headers: {
                     'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ function CreateAccount(props) {
                     password:password,
                     monthlyincome, bankbalance};
         console.log(data)
-        const response = await fetch('http://localhost:3000/api/createaccount', {
+        const response = await fetch('https://finance-tracker-backend-5k37.onrender.com/api/createaccount', {
              method: 'POST',
              headers: {
                     'Content-Type': 'application/json'

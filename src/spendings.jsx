@@ -11,7 +11,7 @@ function Spendings({ onBack,username}) {
             .reduce((t, expense) => t + Number(expense.amount), 0)
     }));
     const getexpenses = async () => {
-        const response = await fetch('http://localhost:3000/api/spendings');
+        const response = await fetch('https://finance-tracker-backend-5k37.onrender.com/api/spendings');
        const result= await response.json();
        console.log(result)
        setexpenses(result);
@@ -21,7 +21,7 @@ function Spendings({ onBack,username}) {
     
         }, []);
     const deleteExpense = async (id) => {
-    await fetch(`http://localhost:3000/api/expenses/${id}`, {
+    await fetch(`https://finance-tracker-backend-5k37.onrender.com/api/expenses/${id}`, {
         method: 'DELETE'
     });
     getexpenses();

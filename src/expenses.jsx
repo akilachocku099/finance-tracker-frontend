@@ -21,7 +21,7 @@ function Expenses({ onBack, username, getexpenses }) {
                         paymentMethod: e.target.elements['payment-method'].value,
                     };
                     console.log(data);
-                    const response = await fetch('http://localhost:3000/api/expenses', {
+                    const response = await fetch('https://finance-tracker-backend-5k37.onrender.com/api/expenses', {
                     method: 'POST',
                     headers: {
                     'Content-Type': 'application/json'

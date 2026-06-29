@@ -24,7 +24,7 @@ function DashBoard({ username,monthlyincome, bankbalance }) {
     };
 
     const getexpenses = async () => {
-        const response = await fetch('http://localhost:3000/api/dashboard');
+        const response = await fetch('https://finance-tracker-backend-5k37.onrender.com/api/dashboard');
         const result = await response.json();
         console.log(result.expenses);
         setexpenses(result.expenses || []);
