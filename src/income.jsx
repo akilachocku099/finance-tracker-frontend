@@ -1,7 +1,7 @@
 import React , { useState , useEffect } from 'react';
 import  './income.css';
 
-function Income({ onBack ,getexpenses }) {
+function Income({ onBack ,getexpenses , username }) {
  
     return (
         <div className='income-page'>
@@ -11,13 +11,13 @@ function Income({ onBack ,getexpenses }) {
                 <form onSubmit={async (e) => {
                     e.preventDefault();
                     const data = {
+                        username:username,
                         name: e.target.elements['income-name'].value,
                         amount: e.target.elements.amount.value,
                         category: e.target.elements.category.value,
                         date: e.target.elements.date.value,
                         notes: e.target.elements.notes.value,
-                        receipt: e.target.elements.receipt.files[0],
-                        paymentMethod: e.target.elements['payment-method'].value,
+                       
                     };
                     console.log(data);
                     const response = await fetch('http://localhost:3000/api/income', {
@@ -46,7 +46,13 @@ function Income({ onBack ,getexpenses }) {
                         <option value="other">Other</option>
                     </select>
                     <label htmlFor="date">Date:</label>
-                    <input type="date" id="date" name="date" required />
+                    <input 
+                        type="date" 
+                        id="date" 
+                        name="date" 
+                        defaultValue={new Date().toISOString().split('T')[0]}
+                        required 
+                    />
                     <label htmlFor="notes">Notes:</label>
                     <textarea id="notes" name="notes" rows="4"></textarea>
                     <label htmlFor="receipt">Upload Receipt:</label>

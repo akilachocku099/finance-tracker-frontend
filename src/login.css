@@ -94,8 +94,8 @@ button {
 
 /* Target the "Go Back" buttons inside your view shifts */
 .loginPage > button {
-    background-color: #e0e0e0; /* Clean structural gray */
-    color: #333;
+    background-color:#E8612C; /* Clean structural gray */
+    color: #f9f5f5;
     margin-top: 15px;
 }
 .loginPage > button:hover {

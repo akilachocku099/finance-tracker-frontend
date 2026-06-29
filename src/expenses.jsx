@@ -1,7 +1,7 @@
 import React , { useState , useEffect } from 'react';
 import  './expenses.css';
 
-function Expenses({ onBack }) {
+function Expenses({ onBack, username, getexpenses }) {
  
     return (
         <div className='expenses-page'>
@@ -11,6 +11,7 @@ function Expenses({ onBack }) {
                 <form onSubmit={async (e) => {
                     e.preventDefault();
                     const data = {
+                        username:username,
                         name: e.target.elements['expense-name'].value,
                         amount: e.target.elements.amount.value,
                         category: e.target.elements.category.value,
@@ -27,6 +28,7 @@ function Expenses({ onBack }) {
                             },
                         
                     body: JSON.stringify(data)});
+                    if (getexpenses) await getexpenses();
                     onBack();
 
                 }}>
@@ -46,7 +48,13 @@ function Expenses({ onBack }) {
                         <option value="other">Other</option>
                     </select>
                     <label htmlFor="date">Date:</label>
-                    <input type="date" id="date" name="date" required />
+                    <input 
+                        type="date" 
+                        id="date" 
+                        name="date" 
+                        defaultValue={new Date().toISOString().split('T')[0]}
+                        required 
+                    />
                     <label htmlFor="notes">Notes:</label>
                     <textarea id="notes" name="notes" rows="4"></textarea>
                     <label htmlFor="receipt">Upload Receipt:</label>

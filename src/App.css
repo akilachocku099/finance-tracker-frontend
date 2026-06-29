@@ -22,3 +22,12 @@ body {
   flex: 1;
   padding: 20px;
 }
+@media (max-width: 768px) {
+    .balance-section-grid {
+        grid-template-columns: 1fr;
+    }
+    .button-section {
+        flex-direction: column;
+        align-items: center;
+    }
+}

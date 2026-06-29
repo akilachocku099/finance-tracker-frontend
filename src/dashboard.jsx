@@ -37,7 +37,7 @@ function DashBoard({ username,monthlyincome, bankbalance }) {
 
     const expense_current= expenses.filter(e=>{ 
         let dte=Number(e.date.slice(5,7));
-        return( dte== currentMonth.getMonth()+1)
+        return( dte== currentMonth.getMonth()+1 && e.username==username)
     });
     let totalSpent=0;
     expense_current.forEach(e => {
@@ -45,16 +45,26 @@ function DashBoard({ username,monthlyincome, bankbalance }) {
     });
    let overall_spent=0;
     expenses.forEach(e=>{
-        overall_spent=overall_spent+ Number(e.amount);
+        if(e.username === username) {
+        overall_spent=overall_spent+ Number(e.amount);}
     });
     let overall_income=0;
     income.forEach(e=>{
-        overall_income=overall_income+ Number(e.amount);
+        if(e.username==username){
+        overall_income=overall_income+ Number(e.amount);}
     });
 
-    const currentBalance= bankbalance-overall_spent+overall_income;
+    const currentBalance = bankbalance - totalSpent + overall_income;
     let savings=0;
-    const salaries=income.filter(e=>e.category==="Salary");
+    const salaries = income.filter(e => 
+    e.category === "Salary" && 
+    e.username == username &&
+    Number(e.date.slice(5,7)) === currentMonth.getMonth() + 1 &&
+    e.date.slice(0,4) === String(currentMonth.getFullYear())
+    );
+
+    const totalSalary = salaries.reduce((t, e) => t + Number(e.amount), 0);
+    savings = totalSalary - totalSpent;
     console.log(salaries)
     let latest_salary=0;
     if (salaries && salaries.length > 0) {
@@ -65,13 +75,13 @@ function DashBoard({ username,monthlyincome, bankbalance }) {
 
 
     if (view === 'expenses') {
-        return <Expenses onBack={() => setView('dashboard')} />;
-    }
+    return <Expenses onBack={() => setView('dashboard')} username={username} getexpenses={getexpenses}/>;
+}
     if (view === 'spending-trends') {
-        return <Spendings onBack={() => setView('dashboard')} />;
+        return <Spendings onBack={() => setView('dashboard')} username={username} />;
     }
     if (view==='Add-income'){
-        return< Income onBack={() => setView('dashboard')} getexpenses={getexpenses} />
+        return< Income onBack={() => setView('dashboard')} getexpenses={getexpenses} username={username} />
     }
   
     return (
