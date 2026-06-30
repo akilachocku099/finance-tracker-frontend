@@ -10,10 +10,9 @@ function App() {
   const[username,setusername]=useState('')
   const [monthlyincome,setmonthlyincome]=useState(0)
   const[bankbalance,setbankbalance]=useState(0)
-
   return (
     <div className="app-container">
-      <Navbar onLogout={() => setIsLoggedIn(false)} />
+      {isLoggedIn &&  <Navbar onLogout={() => setIsLoggedIn(false)} />}
       
       <main className="main-content">
         {!isLoggedIn ? (

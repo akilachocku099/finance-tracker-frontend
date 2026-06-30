@@ -1,7 +1,7 @@
 import React from 'react';
 import './navbar.css';
 
-function Navbar({ onLogout }) {
+function Navbar({ onLogout}) {
     return (
         <nav className='navbar'>
             <span className='navbar-brand'>💰 Finance Tracker</span>
